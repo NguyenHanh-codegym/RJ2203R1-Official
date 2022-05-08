@@ -2,28 +2,38 @@ import { useState } from "react";
 
 function LoginForm() {
     const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-    const [account, setAccount] = useState({ email: '', Password: '' });
-
-
+    const [password, setPassword] = useState('')
     return (
-        <div className="Container">
-            <form class="row row-cols-lg-auto g-3 align-items-center">
-                <div class="col-12">
-                    <label class="visually-hidden" for="inlineFormInputGroupUsername">Email</label>
-                    <div class="input-group">
-                        <input type="text" class="form-control" id="inlineFormInputGroupUsername" placeholder="abc@gmail.com" />
+        <div>
+            <form >
+                <div>
+                    <label>Email</label>
+                    <input 
+                    type="text" 
+                     onChange={(e)=>{setEmail(e.target.value)}} 
+                     placeholder="Enter your email" />
+                </div>
+                <div>
+                    <label>Password</label>
+                    <div>
+                        <input 
+                        type="text" 
+                        onChange={(e)=>{setPassword(e.target.value)}}  
+                        placeholder="Enter your Password" />
                     </div>
                 </div>
-                <div class="col-12">
-                    <label class="visually-hidden" for="inlineFormInputGroupUsername">Password</label>
-                    <div class="input-group">
-                        <input type="text" class="form-control" id="inlineFormInputGroupUsername" placeholder="Enter your Password" />
-                    </div>
+                <div>
+                    <button type="submit" 
+                    onClick={(e)=>{
+                        setEmail(e.target.value)
+                        setPassword(e.target.value)
+                    }}
+                    consolelog = {email}
+                    >Submit</button>
                 </div>
-                <div class="col-12">
-                    <button type="submit" class="btn btn-primary">Submit</button>
-                </div>
+                <hr></hr>
+                <h2>Email : {email}</h2>
+                <h2>Password : {password}</h2>
             </form>
         </div>
     );
